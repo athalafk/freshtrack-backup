@@ -6,17 +6,20 @@ const authRoutes = require('./routes/authRoutes');
 const barangRoutes = require('./routes/barangRoutes');
 const riwayatRoutes = require('./routes/riwayatRoutes');
 
-
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.get('/', (req, res) => {
+    res.send('Selamat datang di aplikasi kami!');
+  });
 
 app.use('/api/auth', authRoutes);
 app.use('/api/barang', barangRoutes);
 app.use('/api/riwayat', riwayatRoutes);
 
 const PORT = process.env.PORT || 3000;
-const HOST = '0.0.0.0'; // Listen di semua alamat
+const HOST = '0.0.0.0'; 
 
 app.listen(PORT, HOST, () => console.log(`Server berjalan di http://${HOST}:${PORT}`));
 
