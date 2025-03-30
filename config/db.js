@@ -6,12 +6,12 @@ console.log("ENV CHECK:", process.env.DATABASE_URL);
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false // Untuk koneksi ke Supabase
+    rejectUnauthorized: false, // Untuk koneksi ke Supabase
   }
 });
 
 pool.connect()
-  .then(() => console.log('Database connected to Supabase'))
-  .catch(err => console.error('Database connection error:', err));
+  .then(() => console.log('✅ Database connected to Supabase (via Session Pooler)'))
+  .catch(err => console.error('❌ Database connection error:', err));
 
 module.exports = pool;
