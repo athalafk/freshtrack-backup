@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 console.log("ENV CHECK:", process.env.MYSQL_HOST, process.env.MYSQL_PORT, process.env.MYSQL_USER);
 
 const db = mysql.createPool({
-  host: process.env.MYSQL_HOST,
+  host: process.env.MYSQL_HOST || "mysql.railway.internal",
   port: process.env.MYSQL_PORT,
   user: process.env.MYSQL_USER,
   password: process.env.MYSQL_PASSWORD,
