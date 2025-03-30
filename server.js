@@ -16,4 +16,7 @@ app.use('/api/barang', barangRoutes);
 app.use('/api/riwayat', riwayatRoutes);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server berjalan di http://localhost:${PORT}`));
+const HOST = '0.0.0.0'; // Listen di semua alamat
+
+app.listen(PORT, HOST, () => console.log(`Server berjalan di http://${HOST}:${PORT}`));
+
